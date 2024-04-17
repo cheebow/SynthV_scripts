@@ -8,8 +8,9 @@ motiontype = {}
     motiontype[1]: ノート追加場所
     0: メインノートグループの後ろ
     1: トラックの一番後ろ
+    2: 追加しない
 ]]
-motiontype[1] = 1
+motiontype[1] = 2
 
 Q = SV.QUARTER
 
@@ -100,7 +101,7 @@ function main()
         if lyrics[i] ~= defaultlyrics or i <= #Notes then
             if nidx <= maxnidx then
                 NG:getNote(nidx):setLyrics(lyrics[i])
-            else
+            elseif motiontype[1] ~= 2 then
                 local note = SV:create("Note")
                 note:setTimeRange(last, Q)
                 note:setLyrics(lyrics[i])
