@@ -18,8 +18,8 @@ function getClientInfo()
       name = SV:T("Move Front Lyrics"),
       category = "Lyrics",
       author = "Yukikazari",
-      versionNumber = 1,
-      minEditorVersion = 0x010008
+      versionNumber = 2,
+      minEditorVersion = 0x020000
     }
 end
 
@@ -54,7 +54,7 @@ function main()
 
     local nOnset = Notes[1]:getOnset()
     local nidx = -1
-    local NG = Track:getGroupReference(1):getTarget()    
+    local NG = Notes[1]:getParent()
     local maxnidx = NG:getNumNotes()
 
     for i = 1, maxnidx do
